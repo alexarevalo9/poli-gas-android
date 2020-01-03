@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Poli-Gas</string>
+
+    <!-- Strings of Welcome Land -->
+    <string name="welcome_msg">Bienvenido a esta nueva forma de cilindros de gas a domicilio</string>
+    <string name="begin_text">Comencemos!!!</string>
+
+    <!-- Strings of Info User Land -->
+    <string name="insert_data">Ingrese los siguientes datos</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="save">Guardar</string>
+
+    <!-- Strings of Home Land -->
+    <string name="quantity_cylinders">Cantidad de cilindros</string>
+    <string name="make_request">Realizar Pedido</string>
+
 </resources>
