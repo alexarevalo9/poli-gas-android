@@ -4,15 +4,18 @@
     <item
         android:title="Info"
         android:id="@+id/action_info"
-        android:icon="@drawable/ic_info" />
+        android:icon="@drawable/ic_info"
+        android:menuCategory="container"/>
 
     <item
         android:title="Home"
-        android:id="@+id/action_home"
-        android:icon="@drawable/ic_home" />
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:menuCategory="container"/>
 
     <item
         android:title="Settings"
-        android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings" />
+        android:id="@+id/infoUserFragment"
+        android:icon="@drawable/ic_settings"
+        android:menuCategory="container"/>
 </menu>

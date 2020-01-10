@@ -2,30 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@+id/startFragment">
+    android:id="@+id/nav_controller"
+    app:startDestination="@id/startFragment">
 
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.poli_gas.start.StartFragment"
         android:label="StartFragment"
-        tools:layout="@layout/fragment_start">
+        tools:layout="@layout/fragment__start">
         <action
-            android:id="@+id/action_startFragment_to_infoUserFragment"
-            app:destination="@id/infoUserFragment" />
+            android:id="@+id/action_startFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.poli_gas.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_infoUserFragment"
+            app:destination="@id/infoUserFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/infoUserFragment"
         android:name="com.example.poli_gas.info_user.InfoUserFragment"
         android:label="InfoUserFragment"
-        tools:layout="@layout/fragment_info_user">
-        <action
-            android:id="@+id/action_infoUserFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_info_user"/>
 </navigation>

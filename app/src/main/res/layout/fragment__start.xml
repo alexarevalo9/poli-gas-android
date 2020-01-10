@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:background="@drawable/background_app"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_app"
     tools:context="com.example.poli_gas.MainActivity">
 
     <TextView
@@ -16,13 +16,13 @@
         android:layout_marginBottom="97dp"
         android:width="209sp"
         android:height="227sp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:lineSpacingMultiplier="1.5333333333333334"
         android:text="@string/welcome_msg"
         android:textColor="@color/text_color"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/init_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:lineSpacingMultiplier="1.5"
         android:text="@string/app_name"
         android:textColor="@color/text_color"
@@ -43,12 +43,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/init_button"
         android:layout_width="wrap_content"
         android:layout_height="61dp"
         android:layout_marginBottom="94dp"
         android:background="@drawable/bg_button"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:text="@string/begin_text"
         android:textColor="@color/text_color"
         android:textSize="30sp"
@@ -58,4 +58,5 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
