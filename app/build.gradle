@@ -24,6 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -57,4 +61,8 @@ dependencies {
 
     //MapBox
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.0.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
 }

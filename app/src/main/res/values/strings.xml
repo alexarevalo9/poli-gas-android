@@ -33,4 +33,18 @@
 
     <string name="hour_message">"Seleccione la hora de entrega"</string>
     <string name="date_message">Seleccione la fecha de entrega</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYWxleGFyZXZhbG85IiwiYSI6ImNrM3ExNWpkZTA5NHIzZnBjeHo2aHRyd2UifQ.FstgGH3aJRSQ2MXAqQyL7g</string>
+    <!--Move map instruction for toast-->
+    <string name="move_map_instruction">Mueva el mapa al lugar \n marcador en la ubicación deseada</string>
+
+    <!--Zoom in and out map instruction for toast-->
+    <string name="zoom_map_in_and_out_instruction">Zoom in and out to see cluster numbers change</string>
+    <!--Basic user location permission toasts-->
+    <string name="user_location_permission_explanation">Esta aplicación necesita permisos de ubicación para mostrar su funcionalidad.</string>
+    <string name="user_location_permission_not_granted">No se otorgó permisos de ubicación.</string>
+    <!--LocationPickerActivity activity-->
+    <string name="location_picker_select_location_button_cancel">Cancelar</string>
+    <string name="location_picker_select_location_button_select">Selecciona una ubicación</string>
+    <string name="location_picker_dropped_marker_snippet_no_results">Sin resultados</string>
+    <string name="location_picker_place_name_result">Nombre del Lugar: %1$s</string>
 </resources>
