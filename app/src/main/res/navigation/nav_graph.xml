@@ -65,4 +65,9 @@
             android:id="@+id/action_typeRequestFragment_to_scheduleRequestFragment"
             app:destination="@id/scheduleRequestFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.poli_gas.map.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_map"/>
 </navigation>

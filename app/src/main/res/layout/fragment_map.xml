@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto">
+
+
+    <FrameLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.poli_gas.map.MapFragment">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="-0.2101769"
+        mapbox:mapbox_cameraTargetLng="-78.490869"
+        mapbox:mapbox_cameraZoom="11">
+
+        <Button
+            android:id="@+id/select_location_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Select a location"
+            android:textColor="@android:color/white" />
+    </com.mapbox.mapboxsdk.maps.MapView>
+
+    </FrameLayout>
+</layout>

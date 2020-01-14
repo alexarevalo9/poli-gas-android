@@ -3,7 +3,7 @@
 
     <item
         android:title="Info"
-        android:id="@+id/action_info"
+        android:id="@+id/mapFragment"
         android:icon="@drawable/ic_info"
         android:menuCategory="container"/>
 
