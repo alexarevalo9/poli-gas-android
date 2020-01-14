@@ -15,4 +15,22 @@
     <string name="quantity_cylinders">Cantidad de cilindros</string>
     <string name="make_request">Realizar Pedido</string>
 
+    <!-- Strings of Type Request -->
+
+    <string name="express_request">Pedido Express</string>
+    <string name="schedule_request">Agendar Pedido</string>
+    <string name="info_request">El pedido express, busca el proveedor mas cercano a tu hogar y te indicara si deseas esperar el tiempo de llegada
+    del pedido. Al Agendar Pedido podras seleccionar una hora y un dia de tu eleccion para que tu pedido llegue a tu hogar</string>
+
+    <!-- Strings of Progress Request -->
+    <string name="searching_provider">buscando proveedor...</string>
+    <string name="feedback_message">Tu opinión es importante para nosotros</string>
+    <string name="comment">Comentar</string>
+
+    <string name="comment_title">Coméntanos</string>
+    <string name="comment_message">Cuéntanos cuál fue tu inconvenienteo sugerencia que desees que conozcamos</string>
+    <string name="send">Enviar</string>
+
+    <string name="hour_message">"Seleccione la hora de entrega"</string>
+    <string name="date_message">Seleccione la fecha de entrega</string>
 </resources>

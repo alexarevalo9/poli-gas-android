@@ -38,6 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
+        android:id="@+id/commentary_text_area"
         android:layout_width="309dp"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"
@@ -49,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
+        android:id="@+id/send_commentary_button"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="123dp"

@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/phone_text"
         android:layout_width="307dp"
         android:layout_height="42dp"
         android:layout_marginStart="29dp"
@@ -75,9 +75,10 @@
         android:textColor="@color/text_color"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_text" />
 
     <Button
+        android:id="@+id/map_image"
         android:layout_width="213dp"
         android:layout_height="216dp"
         android:background="@drawable/lupa"
@@ -87,6 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
+        android:id="@+id/save_button"
         android:layout_width="141dp"
         android:layout_height="38dp"
         android:layout_marginBottom="71dp"

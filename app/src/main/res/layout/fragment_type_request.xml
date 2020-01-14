@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:lineSpacingMultiplier="1.5"
         android:text="@string/app_name"
         android:textColor="@color/text_color"
@@ -33,7 +33,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:src="@drawable/blueTanqCard" />
+        tools:src="@drawable/bluetanqcard" />
 
     <TextView
         android:id="@+id/textView7"
@@ -42,7 +42,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:text="@string/quantity_cylinders"
         android:textColor="@color/text_color"
         android:textSize="20sp"
@@ -50,13 +50,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/quantity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
         android:layout_marginTop="4dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:text="1"
         android:textColor="@color/text_color"
         android:textSize="20sp"
@@ -64,6 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
+        android:id="@+id/express_order_button"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="338dp"
@@ -77,6 +78,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/schedule_order_button"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="255dp"

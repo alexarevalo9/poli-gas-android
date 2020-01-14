@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:lineSpacingMultiplier="1.5"
         android:text="@string/app_name"
         android:textColor="@color/text_color"
@@ -33,7 +33,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:src="@drawable/blueTanqCard" />
+        tools:src="@drawable/bluetanqcard" />
 
     <TextView
         android:id="@+id/textView7"
@@ -42,7 +42,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:text="@string/quantity_cylinders"
         android:textColor="@color/text_color"
         android:textSize="20sp"
@@ -50,13 +50,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/quantity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
         android:layout_marginTop="4dp"
-        android:fontFamily="Andalus"
+        android:fontFamily="sans-serif"
         android:text="1"
         android:textColor="@color/text_color"
         android:textSize="20sp"
@@ -65,7 +65,7 @@
 
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/delivery_date_text"
         android:layout_width="255dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
@@ -92,7 +92,7 @@
         android:layout_marginRight="69dp"
         android:background="@drawable/ic_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/delivery_date_text"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
@@ -125,10 +125,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/delivery_date_text" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/delivery_hour_text"
         android:layout_width="255dp"
         android:layout_height="42dp"
         android:layout_marginStart="23dp"
@@ -148,10 +148,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:background="@drawable/ic_hourglas"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintStart_toEndOf="@+id/delivery_hour_text"
+        app:layout_constraintTop_toTopOf="@+id/delivery_hour_text" />
 
     <Button
+        android:id="@+id/schedule_order_button"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="134dp"
