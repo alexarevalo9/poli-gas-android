@@ -22,6 +22,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import com.mapbox.geojson.Point
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
@@ -34,16 +35,17 @@ import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
 class MapFragment :  Fragment(), PermissionsListener {
 
     private var mapView: MapView? = null
-    private val DROPPED_MARKER_LAYER_ID = "DROPPED_MARKER_LAYER_ID"
     private var map: MapboxMap? = null
-    private var selectLocationButton: Button? = null
     private var permissionsManager: PermissionsManager? = null
     private var hoveringMarker: ImageView? = null
     private var droppedMarkerLayer: Layer? = null
+    private var latLong : Array<String>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         Mapbox.getInstance(context!!, getString(R.string.mapbox_access_token))
+
+        val arguments = arguments?.let { MapFragmentArgs.fromBundle(it) }
 
         val binding = FragmentMapBinding.inflate(inflater)
         mapView = binding.mapView
@@ -77,8 +79,7 @@ class MapFragment :  Fragment(), PermissionsListener {
                 initDroppedMarker(style)
 
                 // Button for user to drop marker or to pick marker back up.
-                selectLocationButton = view!!.findViewById(R.id.select_location_button)
-                selectLocationButton!!.setOnClickListener {
+                binding.selectLocationButton!!.setOnClickListener {
                     if (hoveringMarker!!.visibility == View.VISIBLE) {
 
                         // Use the map target's coordinates to make a reverse geocoding search
@@ -88,10 +89,10 @@ class MapFragment :  Fragment(), PermissionsListener {
                         hoveringMarker!!.visibility = View.INVISIBLE
 
                         // Transform the appearance of the button to become the cancel button
-                        selectLocationButton!!.setBackgroundColor(
+                        binding.selectLocationButton!!.setBackgroundColor(
                             ContextCompat.getColor(context!!, R.color.colorAccent)
                         )
-                        selectLocationButton!!.text = getString(R.string.location_picker_select_location_button_cancel)
+                        binding.selectLocationButton!!.text = getString(R.string.location_picker_select_location_button_cancel)
 
                         // Show the SymbolLayer icon to represent the selected map location
                         if (style.getLayer(MapFragment.DROPPED_MARKER_LAYER_ID) != null) {
@@ -108,17 +109,15 @@ class MapFragment :  Fragment(), PermissionsListener {
                             }
                         }
 
-                        // Use the map camera target's coordinates to make a reverse geocoding search
-                        Log.i("MapFragment","${Point.fromLngLat( mapTargetLatLng.longitude, mapTargetLatLng.latitude)}"
-                        )
+                        latLong = arrayOf(mapTargetLatLng.latitude.toString(),mapTargetLatLng.longitude.toString())
 
                     } else {
 
                         // Switch the button appearance back to select a location.
-                        selectLocationButton!!.setBackgroundColor(
+                        binding.selectLocationButton!!.setBackgroundColor(
                             ContextCompat.getColor(context!!, R.color.colorPrimary)
                         )
-                        selectLocationButton!!.text = getString(R.string.location_picker_select_location_button_select)
+                        binding.selectLocationButton!!.text = getString(R.string.location_picker_select_location_button_select)
 
                         // Show the red hovering ImageView marker
                         hoveringMarker!!.visibility = View.VISIBLE
@@ -131,6 +130,9 @@ class MapFragment :  Fragment(), PermissionsListener {
                     }
                 }
 
+                binding.loadLocalStyleButton.setOnClickListener{
+                    view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoUserFragment(latLong, arguments?.phone))
+                }
 
             }
 
@@ -159,12 +161,12 @@ class MapFragment :  Fragment(), PermissionsListener {
         super.onStop()
         mapView?.onStop()
     }
-
+/*
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         mapView!!.onSaveInstanceState(outState)
     }
-
+*/
     override fun onDestroyView() {
         super.onDestroyView()
 

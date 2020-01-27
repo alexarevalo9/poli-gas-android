@@ -15,11 +15,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentWelcomeBinding.inflate(inflater)
-        var change = activity!!.findViewById<View>(R.id.container)
-        change.bottomNavigationView.setVisibility(View.GONE)
+
         binding.initButton.setOnClickListener {
-            view!!.findNavController().navigate(WelcomeFragmentDirections.actionStartFragmentToInfoUserFragment())
+            view!!.findNavController().navigate(WelcomeFragmentDirections.actionStartFragmentToInfoUserFragment(null, null))
         }
+
         return binding.root
     }
 }
