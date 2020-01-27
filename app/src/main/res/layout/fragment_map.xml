@@ -6,7 +6,7 @@
     xmlns:mapbox="http://schemas.android.com/apk/res-auto">
 
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,17 +19,50 @@
         mapbox:mapbox_cameraTargetLat="-0.2101769"
         mapbox:mapbox_cameraTargetLng="-78.490869"
         mapbox:mapbox_cameraZoom="11">
-
+<!--
         <Button
             android:id="@+id/select_location_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="@color/colorPrimary"
             android:text="Select a location"
             android:textColor="@android:color/white" />
+            -->
     </com.mapbox.mapboxsdk.maps.MapView>
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/select_location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Insertar"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            mapbox:layout_constraintBottom_toTopOf="@+id/load_local_style_button"
+            mapbox:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/load_local_style_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:background="#9C27B0"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Aceptar"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            mapbox:layout_constraintBottom_toBottomOf="parent"
+            mapbox:layout_constraintEnd_toEndOf="@+id/select_location_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

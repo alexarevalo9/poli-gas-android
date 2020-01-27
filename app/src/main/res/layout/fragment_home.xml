@@ -10,15 +10,14 @@
 
         <variable
             name="homeViewModel"
-            type="com.example.poli_gas.home.HomeViewModel"/>
+            type="com.example.poli_gas.home.HomeViewModel" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_app"
-    tools:context="com.example.poli_gas.home.HomeFragment">
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_app"
+        tools:context="com.example.poli_gas.home.HomeFragment">
 
 
         <TextView
@@ -36,16 +35,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+        <com.jama.carouselview.CarouselView
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            app:carouselOffset="center"
+            app:enableSnapping="true"
+            app:indicatorAnimationType="drop"
+            app:indicatorPadding="5"
+            app:indicatorRadius="5"
+            app:indicatorSelectedColor="@color/white"
+            app:indicatorUnselectedColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:srcCompat="@drawable/container_preview" />
+            app:scaleOnScroll="false"
+            app:size="10"
+            app:spacing="10"
+            />
 
         <TextView
             android:id="@+id/textView7"
@@ -59,62 +68,61 @@
             android:textColor="@color/text_color"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/carousel" />
 
 
-    <Button
-        android:id="@+id/decrease_button"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:onClick="@{() -> homeViewModel.decreaseQuantity()}"
-        android:background="@drawable/minus_sing"
-        app:layout_constraintEnd_toStartOf="@+id/quantity_text"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <Button
+            android:id="@+id/decrease_button"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/minus_sing"
+            android:onClick="@{() -> homeViewModel.decreaseQuantity()}"
+            app:layout_constraintEnd_toStartOf="@+id/quantity_text"
+            app:layout_constraintTop_toBottomOf="@+id/carousel" />
 
-    <TextView
-        android:id="@+id/quantity_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
-        android:fontFamily="sans-serif"
-        android:text="@{homeViewModel.quantity_cilynders}"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <TextView
+            android:id="@+id/quantity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="65dp"
+            android:layout_marginRight="65dp"
+            android:fontFamily="sans-serif"
+            android:text="@{homeViewModel.quantity_cilynders}"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carousel" />
 
-    <Button
-        android:id="@+id/increase_button"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
-        android:onClick="@{() -> homeViewModel.increaseQuantity()}"
-        android:background="@drawable/plus_sing"
-        app:layout_constraintStart_toEndOf="@+id/quantity_text"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <Button
+            android:id="@+id/increase_button"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/plus_sing"
+            android:onClick="@{() -> homeViewModel.increaseQuantity()}"
+            app:layout_constraintStart_toEndOf="@+id/quantity_text"
+            app:layout_constraintTop_toBottomOf="@+id/carousel" />
 
 
-
-    <Button
-        android:id="@+id/make_order_button"
-        android:layout_width="140dp"
-        android:layout_height="43dp"
-        android:background="@drawable/bg_button"
-        android:fontFamily="sans-serif"
-        android:text="@string/make_request"
-        android:textColor="@color/text_color"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/make_order_button"
+            android:layout_width="140dp"
+            android:layout_height="43dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="sans-serif"
+            android:text="@string/make_request"
+            android:textColor="@color/text_color"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

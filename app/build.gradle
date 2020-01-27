@@ -12,7 +12,7 @@ android {
     }
     defaultConfig {
         applicationId "com.example.poli_gas"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -65,4 +65,10 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+
+    //State Progress Bar
+    implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
+
+    //Carousel View
+    implementation 'com.github.jama5262:CarouselView:1.0.0'
 }
