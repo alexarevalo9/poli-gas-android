@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".authuser.AuthUserFragment"></activity>
         <activity android:name=".welcome.WelcomeFragment" />
         <activity android:name=".type_request.TypeRequestFragment" />
         <activity android:name=".schedule_request.ScheduleRequestFragment" />

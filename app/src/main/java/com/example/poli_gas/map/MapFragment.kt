@@ -45,8 +45,6 @@ class MapFragment :  Fragment(), PermissionsListener {
 
         Mapbox.getInstance(context!!, getString(R.string.mapbox_access_token))
 
-        val arguments = arguments?.let { MapFragmentArgs.fromBundle(it) }
-
         val binding = FragmentMapBinding.inflate(inflater)
         mapView = binding.mapView
         mapView?.onCreate(savedInstanceState)
@@ -131,7 +129,7 @@ class MapFragment :  Fragment(), PermissionsListener {
                 }
 
                 binding.loadLocalStyleButton.setOnClickListener{
-                    view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToInfoUserFragment(latLong, arguments?.phone))
+                    view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToHomeFragment())
                 }
 
             }

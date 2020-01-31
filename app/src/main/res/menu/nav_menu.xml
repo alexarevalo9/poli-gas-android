@@ -15,7 +15,7 @@
 
     <item
         android:title="Settings"
-        android:id="@+id/infoUserFragment"
+        android:id="@+id/authUserFragment"
         android:icon="@drawable/ic_settings"
         android:menuCategory="container"/>
 </menu>

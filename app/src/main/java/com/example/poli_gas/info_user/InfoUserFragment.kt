@@ -15,14 +15,15 @@ class InfoUserFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentInfoUserBinding.inflate(inflater)
-        val arguments  = arguments?.let { InfoUserFragmentArgs.fromBundle(it) }
+     /*   val arguments  = arguments?.let { InfoUserFragmentArgs.fromBundle(it) }*/
 
 
         binding.mapImage.setOnClickListener {
-            view!!.findNavController().navigate(InfoUserFragmentDirections.actionInfoUserFragmentToMapFragment(binding.phoneText.text.toString()))
+            //view!!.findNavController().navigate(InfoUserFragmentDirections.actionInfoUserFragmentToMapFragment(binding.phoneText.text.toString()))
             //Log.i("InfoUser", binding.phoneText.text.toString())
         }
 
+        /*
         if(arguments?.phone != null){
             binding.phoneText.setText(arguments.phone)
         }
@@ -42,7 +43,7 @@ class InfoUserFragment : Fragment() {
                 Toast.makeText(context,"Debe ingresar los datos pedidos", Toast.LENGTH_SHORT).show()
             }
 
-        }
+        }*/
         return binding.root
     }
 }

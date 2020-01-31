@@ -17,7 +17,7 @@ class WelcomeFragment : Fragment() {
         val binding = FragmentWelcomeBinding.inflate(inflater)
 
         binding.initButton.setOnClickListener {
-            view!!.findNavController().navigate(WelcomeFragmentDirections.actionStartFragmentToInfoUserFragment(null, null))
+            view!!.findNavController().navigate(WelcomeFragmentDirections.actionStartFragmentToAuthUserFragment())
         }
 
         return binding.root
