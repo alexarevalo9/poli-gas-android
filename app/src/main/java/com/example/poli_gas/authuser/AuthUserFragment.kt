@@ -43,13 +43,16 @@ class AuthUserFragment : Fragment() {
 
             val phone = binding.editTextPhone.text.toString().trim()
 
-            if (phone.isEmpty() || phone.length != 10) {
+            if (phone.isEmpty() || phone.length != 9) {
                 binding.editTextPhone.error = "Enter a valid phone"
                 binding.editTextPhone.requestFocus()
                 return@setOnClickListener
             }
 
+
+
             val phoneNumber = '+' + binding.ccp.selectedCountryCode + phone
+            Log.i("authuser", "${phoneNumber}")
 
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phoneNumber,
@@ -92,6 +95,7 @@ class AuthUserFragment : Fragment() {
         }
 
         override fun onVerificationFailed(exception: FirebaseException) {
+            Log.i("authuser", "${exception?.message}")
             Toast.makeText(context, exception?.message!! ,Toast.LENGTH_SHORT).show()
         }
 

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "4543379461-icbhtum176ovp0uc1mkmrsh8dpebpolb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.poli_gas",
+            "certificate_hash": "d53be10df69471c9ff93bfaf1594f5dfc5a508b2"
+          }
+        },
+        {
           "client_id": "4543379461-fhqnjg13h4pbjh82n3692mlj0r274lhh.apps.googleusercontent.com",
           "client_type": 3
         }
