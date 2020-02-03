@@ -33,6 +33,9 @@
 
     <string name="hour_message">"Seleccione la hora de entrega"</string>
     <string name="date_message">Seleccione la fecha de entrega</string>
+    <string name="date_hint">"dd/mm/aaaa"</string>
+    <string name="hour_hint">"HH:MM"</string>
+
     <string name="mapbox_access_token">pk.eyJ1IjoiYWxleGFyZXZhbG85IiwiYSI6ImNrM3ExNWpkZTA5NHIzZnBjeHo2aHRyd2UifQ.FstgGH3aJRSQ2MXAqQyL7g</string>
     <!--Move map instruction for toast-->
     <string name="move_map_instruction">Mueva el mapa al lugar \n marcador en la ubicación deseada</string>
