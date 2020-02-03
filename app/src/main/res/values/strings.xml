@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">Poli-Gas</string>
+
+    <!-- Strings of Welcome Land -->
+    <string name="welcome_msg">Bienvenido a esta nueva forma de cilindros de gas a domicilio</string>
+    <string name="begin_text">Comencemos!!!</string>
+
+    <!-- Strings of Info User Land -->
+    <string name="insert_data">Ingrese los siguientes datos</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="save">Guardar</string>
+
+    <!-- Strings of Home Land -->
+    <string name="quantity_cylinders">Cantidad de cilindros</string>
+    <string name="make_request">Realizar Pedido</string>
+
+    <!-- Strings of Type Request -->
+
+    <string name="express_request">Pedido Express</string>
+    <string name="schedule_request">Agendar Pedido</string>
+    <string name="info_request">El pedido express, busca el proveedor mas cercano a tu hogar y te indicara si deseas esperar el tiempo de llegada
+    del pedido. Al Agendar Pedido podras seleccionar una hora y un dia de tu eleccion para que tu pedido llegue a tu hogar</string>
+
+    <!-- Strings of Progress Request -->
+    <string name="searching_provider">buscando proveedor...</string>
+    <string name="feedback_message">Tu opinión es importante para nosotros</string>
+    <string name="comment">Comentar</string>
+
+    <string name="comment_title">Coméntanos</string>
+    <string name="comment_message">Cuéntanos cuál fue tu inconvenienteo sugerencia que desees que conozcamos</string>
+    <string name="send">Enviar</string>
+
+    <string name="hour_message">"Seleccione la hora de entrega"</string>
+    <string name="date_message">Seleccione la fecha de entrega</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYWxleGFyZXZhbG85IiwiYSI6ImNrM3ExNWpkZTA5NHIzZnBjeHo2aHRyd2UifQ.FstgGH3aJRSQ2MXAqQyL7g</string>
+    <!--Move map instruction for toast-->
+    <string name="move_map_instruction">Mueva el mapa al lugar \n marcador en la ubicación deseada</string>
+
+    <!--Zoom in and out map instruction for toast-->
+    <string name="zoom_map_in_and_out_instruction">Zoom in and out to see cluster numbers change</string>
+    <!--Basic user location permission toasts-->
+    <string name="user_location_permission_explanation">Esta aplicación necesita permisos de ubicación para mostrar su funcionalidad.</string>
+    <string name="user_location_permission_not_granted">No se otorgó permisos de ubicación.</string>
+    <!--LocationPickerActivity activity-->
+    <string name="location_picker_select_location_button_cancel">Cancelar</string>
+    <string name="location_picker_select_location_button_select">Selecciona una ubicación</string>
+    <string name="location_picker_dropped_marker_snippet_no_results">Sin resultados</string>
+    <string name="location_picker_place_name_result">Nombre del Lugar: %1$s</string>
 </resources>
