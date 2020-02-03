@@ -69,29 +69,25 @@
         android:layout_width="255dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
         android:background="@drawable/bg_textfield"
+        android:hint="@string/date_hint"
+        android:textAlignment="center"
         android:textColor="@color/text_color"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/datePickerButton"
         android:layout_width="48dp"
         android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
         android:background="@drawable/ic_date"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/delivery_date_text"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -132,21 +128,22 @@
         android:layout_width="255dp"
         android:layout_height="42dp"
         android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="133dp"
-        android:layout_marginRight="133dp"
         android:background="@drawable/bg_textfield"
+        android:hint="@string/hour_hint"
+        android:textAlignment="center"
         android:textColor="@color/text_color"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Button
+        android:id="@+id/timePickerButton"
         android:layout_width="48dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
         android:background="@drawable/ic_hourglas"
         app:layout_constraintStart_toEndOf="@+id/delivery_hour_text"
         app:layout_constraintTop_toTopOf="@+id/delivery_hour_text" />
