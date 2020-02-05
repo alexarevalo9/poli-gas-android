@@ -104,4 +104,8 @@
             android:id="@+id/action_navigationMapFragment_to_progressRequestFragment"
             app:destination="@id/progressRequestFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.poli_gas.myaccount.AccountFragment"
+        android:label="AccountFragment" />
 </navigation>

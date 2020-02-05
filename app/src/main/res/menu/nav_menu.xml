@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:title="Info"
-        android:id="@+id/mapFragment"
-        android:icon="@drawable/ic_info"
-        android:menuCategory="container"/>
-
-    <item
-        android:title="Home"
+        android:title="Inicio"
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
         android:menuCategory="container"/>
 
     <item
-        android:title="Settings"
-        android:id="@+id/navigationMapFragment"
+        android:title="Mis Cuenta"
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/account_outline"
+        android:menuCategory="container"/>
+
+    <item
+        android:title="Configuraciones"
+        android:id="@+id/startFragment"
         android:icon="@drawable/ic_settings"
         android:menuCategory="container"/>
 </menu>

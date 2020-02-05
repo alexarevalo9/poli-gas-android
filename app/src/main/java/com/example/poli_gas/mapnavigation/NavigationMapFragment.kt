@@ -104,7 +104,6 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
     }
 
     override fun onNavigationFinished() {
-        Log.i("NavigationSS", "FINISHHHHHHHHHHHHHHHH")
         view!!.findNavController().navigate(NavigationMapFragmentDirections.actionNavigationMapFragmentToProgressRequestFragment(true))
     }
 

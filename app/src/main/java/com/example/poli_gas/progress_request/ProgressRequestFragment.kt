@@ -1,7 +1,6 @@
 package com.example.poli_gas.progress_request
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +29,7 @@ class ProgressRequestFragment : Fragment() {
             view!!.findNavController().navigate(ProgressRequestFragmentDirections.actionProgressRequestFragmentToFeedbackFragment())
         }
 
+        hideFeedbackResources()
 
         val arguments = arguments?.let { ProgressRequestFragmentArgs.fromBundle(it) }
 
@@ -73,6 +73,7 @@ class ProgressRequestFragment : Fragment() {
                     3 -> {
                         showProgressText(4)
                         animateProgressBar(StateProgressBar.StateNumber.FOUR)
+                        showFeedbackResources()
                     }
 
                     else ->{
@@ -101,7 +102,13 @@ class ProgressRequestFragment : Fragment() {
         }
     }
 
-    private fun saveOrder(){
+    private fun showFeedbackResources(){
+        binding.commentButton.visibility = View.VISIBLE
+        binding.commentTextView.visibility = View.VISIBLE
+    }
 
+    private fun hideFeedbackResources(){
+        binding.commentButton.visibility = View.INVISIBLE
+        binding.commentTextView.visibility = View.INVISIBLE
     }
 }
