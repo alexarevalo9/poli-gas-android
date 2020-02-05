@@ -38,6 +38,12 @@
         <action
             android:id="@+id/action_progressRequestFragment_to_feedbackFragment"
             app:destination="@id/feedbackFragment" />
+        <action
+            android:id="@+id/action_progressRequestFragment_to_navigationMapFragment"
+            app:destination="@id/navigationMapFragment" />
+        <argument
+            android:name="progressState"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/scheduleRequestFragment"
@@ -93,5 +99,9 @@
         android:id="@+id/navigationMapFragment"
         android:name="com.example.poli_gas.mapnavigation.NavigationMapFragment"
         android:label="NavigationMapFragment"
-        tools:layout="@layout/fragment_navigation_map"/>
+        tools:layout="@layout/fragment_navigation_map">
+        <action
+            android:id="@+id/action_navigationMapFragment_to_progressRequestFragment"
+            app:destination="@id/progressRequestFragment" />
+    </fragment>
 </navigation>

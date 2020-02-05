@@ -95,7 +95,7 @@ class ScheduleRequestFragment : Fragment() {
             .addOnSuccessListener {
                 Log.i("ScheduleRequest", "DocumentSnapshot successfully written!")
                 Toast.makeText(context, "Su pedido ha sido agendado con Exito!!", Toast.LENGTH_LONG).show()
-                view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment())
+                view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
             }
             .addOnFailureListener {
                     e -> Log.i("ScheduleRequest", "Error writing document", e)

@@ -41,7 +41,7 @@ class TypeRequestFragment : Fragment() {
 
         binding.expressOrderButton.setOnClickListener {
             view!!.findNavController()
-                .navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToProgressRequestFragment())
+                .navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToProgressRequestFragment(false))
         }
 
         binding.scheduleOrderButton.setOnClickListener {

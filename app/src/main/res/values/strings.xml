@@ -53,4 +53,8 @@
 
     <string name="was_in_tunnel" translatable="false">was_in_tunnel</string>
     <string name="was_navigation_stopped" translatable="false">was_navigation_stopped</string>
+    <string name="buscandoprovee">Buscando un Proveedor</string>
+    <string name="pedidolisto">Tú pedido está en camino</string>
+    <string name="pedidoentregado">Tú pedido espera por ti!</string>
+    <string name="gracias">Gracias por utilizar nuestra app</string>
 </resources>
