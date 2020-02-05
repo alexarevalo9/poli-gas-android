@@ -22,7 +22,6 @@ import com.jama.carouselview.enums.OffsetType
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 class HomeFragment : Fragment() {
-    val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +29,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater)
-        var change = activity!!.findViewById<View>(R.id.container)
+        val change = activity!!.findViewById<View>(R.id.container)
         change.bottomNavigationView.setVisibility(View.VISIBLE)
         // Get a reference to the ViewModel associated with this fragment.
         val homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
@@ -38,41 +37,10 @@ class HomeFragment : Fragment() {
         var typeCylinder = 0
 
         binding.homeViewModel = homeViewModel
-        val auth = FirebaseAuth.getInstance().currentUser?.uid
-        Log.i("HomeFragMov", "${auth}")
 
         binding.setLifecycleOwner(this)
 
         binding.makeOrderButton.setOnClickListener {
-
-            // Create a new user with a first, middle, and last name
-            val poligas = hashMapOf(
-                "quantity" to binding.quantityText.text,
-                "cilinder" to typeCylinder
-            )
-
-            // Add a new document with a generated ID
-
-            FirebaseAuth.getInstance().uid?.let { it1 ->
-                db.collection(it1)
-                    .add(poligas)
-                    .addOnSuccessListener { documentReference ->
-                        Log.i(
-                            "HomeFragMov",
-                            "DocumentSnapshot added with ID: ${documentReference.id}"
-                        )
-                    }
-                    .addOnFailureListener { e ->
-                        Log.i("HomeFragMov", "Error adding document", e)
-                    }
-            }
-            /*
-            FirebaseAuth.getInstance().uid?.let { it1 ->
-                db.collection(it1)
-                    .document(it1).set(
-                        poligas
-                    )
-            }*/
             view!!.findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToTypeRequestFragment(
                     typeCylinder,
@@ -107,7 +75,6 @@ class HomeFragment : Fragment() {
                 position: Int
             ) {
                 typeCylinder = position + 1
-                Log.i("HomeFragent", "${typeCylinder}")
             }
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {}
@@ -124,11 +91,9 @@ class HomeFragment : Fragment() {
                 imageView.setImageDrawable(resources.getDrawable(images[position]))
             }
             carouselScrollListener = scrollListener
-            Log.i("HomeFragent", "HOla mundo")
             // After you finish setting up, show the CarouselView
             show()
         }
-
 
         return binding.root
     }

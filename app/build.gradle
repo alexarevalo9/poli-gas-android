@@ -64,6 +64,8 @@ dependencies {
     //MapBox
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.0.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation:0.42.4'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.4'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"

@@ -45,8 +45,7 @@ class TypeRequestFragment : Fragment() {
         }
 
         binding.scheduleOrderButton.setOnClickListener {
-            view!!.findNavController()
-                .navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToScheduleRequestFragment())
+            view!!.findNavController().navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToScheduleRequestFragment(arguments!!.totalCylinder, arguments.typeCylinder))
         }
 
 

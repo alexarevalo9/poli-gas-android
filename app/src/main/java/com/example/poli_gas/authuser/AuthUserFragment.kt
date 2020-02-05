@@ -52,7 +52,6 @@ class AuthUserFragment : Fragment() {
 
 
             val phoneNumber = '+' + binding.ccp.selectedCountryCode + phone
-            Log.i("authuser", "${phoneNumber}")
 
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phoneNumber,
@@ -79,7 +78,6 @@ class AuthUserFragment : Fragment() {
 
             verificationId?.let{
                 val credential = PhoneAuthProvider.getCredential(it, code)
-
                 addPhoneNumber(credential)
             }
         }
@@ -95,7 +93,6 @@ class AuthUserFragment : Fragment() {
         }
 
         override fun onVerificationFailed(exception: FirebaseException) {
-            Log.i("authuser", "${exception?.message}")
             Toast.makeText(context, exception?.message!! ,Toast.LENGTH_SHORT).show()
         }
 

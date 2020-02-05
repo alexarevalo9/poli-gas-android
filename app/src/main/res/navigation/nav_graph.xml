@@ -43,7 +43,17 @@
         android:id="@+id/scheduleRequestFragment"
         android:name="com.example.poli_gas.schedule_request.ScheduleRequestFragment"
         android:label="ScheduleRequestFragment"
-        tools:layout="@layout/fragment_schedule_request"/>
+        tools:layout="@layout/fragment_schedule_request">
+        <action
+            android:id="@+id/action_scheduleRequestFragment_to_progressRequestFragment"
+            app:destination="@id/progressRequestFragment" />
+        <argument
+            android:name="totalCylinder"
+            app:argType="string" />
+        <argument
+            android:name="typeCylinder"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/typeRequestFragment"
         android:name="com.example.poli_gas.type_request.TypeRequestFragment"
@@ -79,4 +89,9 @@
             android:id="@+id/action_authUserFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/navigationMapFragment"
+        android:name="com.example.poli_gas.mapnavigation.NavigationMapFragment"
+        android:label="NavigationMapFragment"
+        tools:layout="@layout/fragment_navigation_map"/>
 </navigation>

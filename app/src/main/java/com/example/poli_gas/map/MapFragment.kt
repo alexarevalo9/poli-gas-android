@@ -23,6 +23,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.mapbox.geojson.Point
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
@@ -40,6 +42,7 @@ class MapFragment :  Fragment(), PermissionsListener {
     private var hoveringMarker: ImageView? = null
     private var droppedMarkerLayer: Layer? = null
     private var latLong : Array<String>? = null
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -129,6 +132,7 @@ class MapFragment :  Fragment(), PermissionsListener {
                 }
 
                 binding.loadLocalStyleButton.setOnClickListener{
+                    saveCoordinates()
                     view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToHomeFragment())
                 }
 
@@ -138,6 +142,20 @@ class MapFragment :  Fragment(), PermissionsListener {
 
 
         return binding.root
+    }
+
+    private fun saveCoordinates(){
+        val coordinates = hashMapOf(
+            "latitud" to latLong?.get(0),
+            "longitud" to latLong?.get(1)
+        )
+
+        FirebaseAuth.getInstance().uid?.let { UID ->
+            db.collection("coordinates").document(UID)
+                .set(coordinates)
+                .addOnSuccessListener { Log.i("MapFragmentS", "DocumentSnapshot successfully written!") }
+                .addOnFailureListener { e -> Log.i("MapFragmentS", "Error writing document", e) }
+        }
     }
 
     override fun onStart() {

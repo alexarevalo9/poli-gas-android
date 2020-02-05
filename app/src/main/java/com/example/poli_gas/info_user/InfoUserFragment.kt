@@ -23,27 +23,6 @@ class InfoUserFragment : Fragment() {
             //Log.i("InfoUser", binding.phoneText.text.toString())
         }
 
-        /*
-        if(arguments?.phone != null){
-            binding.phoneText.setText(arguments.phone)
-        }
-
-        binding.saveButton.setOnClickListener {
-            if(arguments?.latLog != null && binding.phoneText.text.toString() != ""){
-                view!!.findNavController().navigate(InfoUserFragmentDirections.actionInfoUserFragmentToHomeFragment())
-                Log.i("InfoUser", "${arguments?.latLog?.get(0)}-${arguments?.latLog?.get(1)}")
-
-            }else if(arguments?.latLog == null && binding.phoneText.text.toString() != ""){
-                Toast.makeText(context,"Debe elegir una Ubicación!!", Toast.LENGTH_SHORT).show()
-
-            }else if(binding.phoneText.text.toString() == "" && arguments?.latLog != null ){
-                Toast.makeText(context,"Debe ingresar un número de teléfono", Toast.LENGTH_SHORT).show()
-
-            }else{
-                Toast.makeText(context,"Debe ingresar los datos pedidos", Toast.LENGTH_SHORT).show()
-            }
-
-        }*/
         return binding.root
     }
 }

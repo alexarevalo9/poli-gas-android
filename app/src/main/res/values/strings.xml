@@ -50,4 +50,7 @@
     <string name="location_picker_select_location_button_select">Selecciona una ubicación</string>
     <string name="location_picker_dropped_marker_snippet_no_results">Sin resultados</string>
     <string name="location_picker_place_name_result">Nombre del Lugar: %1$s</string>
+
+    <string name="was_in_tunnel" translatable="false">was_in_tunnel</string>
+    <string name="was_navigation_stopped" translatable="false">was_navigation_stopped</string>
 </resources>
