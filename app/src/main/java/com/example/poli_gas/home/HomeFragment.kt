@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 
 class HomeFragment : Fragment() {
 
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

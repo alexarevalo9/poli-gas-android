@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.poli_gas.R
+import com.example.poli_gas.database.PoliGas
+import com.example.poli_gas.database.PoligasDatabaseDao
 import com.example.poli_gas.databinding.FragmentScheduleRequestBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -80,34 +82,31 @@ class ScheduleRequestFragment : Fragment() {
 
     private fun saveOrder(){
 
+        val poligas = PoligasDatabaseDao()
         val userUID = FirebaseAuth.getInstance().uid
+        val uuidPoligas = UUID.randomUUID().toString()
 
-        val dataOrder = hashMapOf(
-            "userUid" to userUID,
-            "typeCylinder" to data?.typeCylinder,
-            "totalCylinder" to data?.totalCylinder,
-            "date" to binding.deliveryDateText.text,
-            "hour" to binding.deliveryHourText.text
+        val dataPoligas = PoliGas(
+            userUID,
+            uuidPoligas,
+            data.typeCylinder,
+            data.totalCylinder,
+            binding.deliveryDateText.text.toString(),
+            binding.deliveryHourText.text.toString()
         )
 
-        db.collection("scheduleorder")
-            .add(dataOrder)
-            .addOnSuccessListener {
-                Log.i("ScheduleRequest", "DocumentSnapshot successfully written!")
-                Toast.makeText(context, "Su pedido ha sido agendado con Exito!!", Toast.LENGTH_LONG).show()
-                view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
-            }
-            .addOnFailureListener {
-                    e -> Log.i("ScheduleRequest", "Error writing document", e)
-                Toast.makeText(context, "No se ha podido agendar su pedido intentelo mas tarde", Toast.LENGTH_LONG).show()
+        poligas.insertScheduleOrder(dataPoligas, context)
 
-            }
+        view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
+
+
     }
+
     private fun getOrder(){
         FirebaseAuth.getInstance().uid?.let { UID ->
 
             db.collection("scheduleorder")
-                .whereEqualTo("userUid", UID)
+                .whereEqualTo("poligasUID", UID)
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {

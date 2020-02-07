@@ -12,6 +12,6 @@
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="275dp"
             tools:layout_editor_absoluteY="445dp"
-            app:menu="@menu/nav_menu"/>
+            app:menu="@menu/settings_menu"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

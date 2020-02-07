@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.poli_gas.R
+import com.example.poli_gas.database.PoliGas
+import com.example.poli_gas.database.PoligasDatabaseDao
 import com.example.poli_gas.databinding.FragmentTypeRequestBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -50,30 +52,24 @@ class TypeRequestFragment : Fragment() {
     private fun saveExpressOrder(){
 
         val userUID = FirebaseAuth.getInstance().uid
+        val uuidPoligas = UUID.randomUUID().toString()
 
         val formatDate = SimpleDateFormat("dd/M/yyyy")
         val formatHour = SimpleDateFormat("hh:mm")
         val date = formatDate.format(Date())
         val hour = formatHour.format(Date())
 
-        val dataOrder = hashMapOf(
-            "userUid" to userUID,
-            "typeCylinder" to data?.typeCylinder,
-            "totalCylinder" to data?.totalCylinder,
-            "date" to date,
-            "hour" to hour
+        val poligas = PoligasDatabaseDao()
+        val dataPoligas = PoliGas(
+            userUID,
+            uuidPoligas,
+            data.typeCylinder,
+            data.totalCylinder,
+            date,
+            hour
         )
 
-        db.collection("express")
-            .add(dataOrder)
-            .addOnSuccessListener {
-                Log.i("ScheduleRequest", "DocumentSnapshot successfully written!")
-                view!!.findNavController().navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToProgressRequestFragment(false))
-            }
-            .addOnFailureListener {
-                    e -> Log.i("ScheduleRequest", "Error writing document", e)
-                Toast.makeText(context, "No se ha podido realizar su pedido intentelo mas tarde", Toast.LENGTH_LONG).show()
+        poligas.insertExpressOrder(dataPoligas, context, view)
 
-            }
     }
 }

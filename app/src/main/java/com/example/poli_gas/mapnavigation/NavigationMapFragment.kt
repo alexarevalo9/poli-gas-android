@@ -38,6 +38,7 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Mapbox.getInstance(context!!, getString(R.string.mapbox_access_token))
         return inflater.inflate(R.layout.fragment_navigation_map, container, false)
     }
 

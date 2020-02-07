@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_controller"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/startFragment"
@@ -107,5 +107,27 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.poli_gas.myaccount.AccountFragment"
-        android:label="AccountFragment" />
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account"/>
+    <fragment
+        android:id="@+id/expressOrderFragment"
+        android:name="com.example.poli_gas.expressorder.ExpressOrderFragment"
+        android:label="ExpressOrderFragment"
+        tools:layout="@layout/fragment_express_order">
+        <action
+            android:id="@+id/action_expressOrderFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.poli_gas.detailorder.OrderDetailFragment"
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_orderDetailFragment_to_expressOrderFragment"
+            app:destination="@id/expressOrderFragment" />
+    </fragment>
 </navigation>

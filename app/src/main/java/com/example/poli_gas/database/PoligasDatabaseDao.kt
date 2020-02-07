@@ -1,52 +1,49 @@
 package com.example.poli_gas.database
 
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import android.content.Context
+import android.view.View
+import android.widget.Toast
+import androidx.navigation.findNavController
+import com.example.poli_gas.type_request.TypeRequestFragmentDirections
+import com.google.firebase.firestore.FirebaseFirestore
 
-@Dao
-interface PoligasDatabaseDao  {
+class PoligasDatabaseDao {
 
-    /**
-     * Insert a new row with a value
-     *
-     * @param purchase new value to write
-     */
-    @Insert
-    fun insert(purchase: PoliGas)
+    private val db = FirebaseFirestore.getInstance()
 
-    /**
-     * When updating a row with a value already set in a column,
-     * replaces the old value with the new one.
-     *
-     * @param purchase new value to write
-     */
-    @Update
-    fun update(purchase: PoliGas)
+    fun insertScheduleOrder(order: PoliGas, context: Context?){
 
-    /**
-     * Selects and returns the row that matches the purchase id, which is our key.
-     *
-     * @param key purchase id to match
-     */
-    @Query("SELECT * from poli_gas_table WHERE purchaseId = :key")
-    fun get(key: Long): PoliGas?
+        db.collection("scheduleorder")
+            .add(order)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Su pedido ha sido agendado con Exito!!", Toast.LENGTH_LONG)
+                    .show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(
+                    context,
+                    "No se ha podido agendar su pedido intentelo mas tarde",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+    }
 
+    fun insertExpressOrder(order: PoliGas, context: Context?, view : View?) {
 
-    /**
-     * Selects and returns all rows in the table,
-     *
-     * sorted by purchase id in descending order.
-     */
-    @Query("SELECT * FROM poli_gas_table ORDER BY purchaseId DESC")
-    fun getAllPurchases(): LiveData<List<PoliGas>>
+        db.collection("express")
+            .add(order)
+            .addOnSuccessListener {
+                view!!.findNavController().navigate(TypeRequestFragmentDirections.actionTypeRequestFragmentToProgressRequestFragment(false))
 
-    /**
-     * Selects and returns the latest purchase.
-     */
-    @Query("SELECT * FROM poli_gas_table ORDER BY purchaseId DESC LIMIT 1")
-    fun getPurchase(): PoliGas?
+            }
+            .addOnFailureListener {
+                Toast.makeText(
+                    context,
+                    "No se ha podido realizar su pedido intentelo mas tarde",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+    }
 
 }
+
