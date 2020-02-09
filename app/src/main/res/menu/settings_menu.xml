@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Pedidos Express"
-        android:id="@+id/expressOrderFragment"
-        android:icon="@drawable/ic_fire"
-        android:menuCategory="container"/>
-
-    <item
-        android:title="Pedidos Agendados"
-        android:id="@+id/startFragment"
-        android:icon="@drawable/ic_book"
+        android:title="Cambiar Ubicación"
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/map_marker_radius"
         android:menuCategory="container"/>
 </menu>

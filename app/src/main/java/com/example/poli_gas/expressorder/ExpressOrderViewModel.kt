@@ -33,7 +33,7 @@ class ExpressOrderViewModel() : ViewModel() {
         _navigateToOrderDetailFragment.value = id
     }
 
-    fun onSleepDataQualityNavigated() {
+    fun onOrderDetaielFragmentNavigated() {
         _navigateToOrderDetailFragment.value = null
     }
 }

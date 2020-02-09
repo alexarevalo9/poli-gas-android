@@ -5,13 +5,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.poli_gas.myaccount.AccountFragment">
+        tools:context="com.example.poli_gas.mysettings.SettingsFragment">
         <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navView"
+            android:id="@+id/navViewSettings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="275dp"
             tools:layout_editor_absoluteY="445dp"
-            app:menu="@menu/account_menu"/>
+            app:menu="@menu/settings_menu"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

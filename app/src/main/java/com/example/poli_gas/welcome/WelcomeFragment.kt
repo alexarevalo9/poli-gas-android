@@ -21,7 +21,7 @@ class WelcomeFragment : Fragment() {
         val navBottonm = activity!!.findViewById<View>(R.id.container)
         navBottonm.bottomNavigationView.setVisibility(View.GONE)
 
-        object : CountDownTimer(2000, 1000) {
+        object : CountDownTimer(1300, 1000) {
             override fun onTick(millisUntilFinished: Long) {
 
             }

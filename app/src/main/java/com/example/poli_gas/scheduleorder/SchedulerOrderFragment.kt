@@ -1,4 +1,4 @@
-package com.example.poli_gas.expressorder
+package com.example.poli_gas.scheduleorder
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,44 +11,44 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.poli_gas.R
 import com.example.poli_gas.database.PoliGas
-import com.example.poli_gas.databinding.FragmentExpressOrderBinding
+import com.example.poli_gas.databinding.FragmentSchedulerOrderBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.view.*
 
-class ExpressOrderFragment : Fragment() {
+class SchedulerOrderFragment : Fragment() {
 
     val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding = FragmentExpressOrderBinding.inflate(inflater)
+        val binding = FragmentSchedulerOrderBinding.inflate(inflater)
 
         val navBottonm = activity!!.findViewById<View>(R.id.container)
         navBottonm.bottomNavigationView.setVisibility(View.VISIBLE)
 
-        val expressOrderViewModel =  ViewModelProviders.of(this).get(ExpressOrderViewModel::class.java)
+        val schedulerOrderViewModel =  ViewModelProviders.of(this).get(SchedulerOrderViewModel::class.java)
 
-        binding.expressOrderViewModel = expressOrderViewModel
+        binding.schedulerOrderViewModel = schedulerOrderViewModel
 
         binding.setLifecycleOwner(this)
 
 
         val manager = LinearLayoutManager(activity)
-        binding.expressList.layoutManager = manager
+        binding.schedulerList.layoutManager = manager
 
-        expressOrderViewModel.navigateToOrderDetailFragment.observe(this, Observer { order ->
+        schedulerOrderViewModel.navigateToOrderDetailScheFragment.observe(this, Observer { order ->
             order?.let {
 
-                this.findNavController().navigate(ExpressOrderFragmentDirections.actionExpressOrderFragmentToOrderDetailFragment(order))
-                expressOrderViewModel.onOrderDetaielFragmentNavigated()
+                this.findNavController().navigate(SchedulerOrderFragmentDirections.actionSchedulerOrderFragmentToSchedulerOrderDetailFragment(order))
+                schedulerOrderViewModel.onOrderDetailScheFragmentNavigated()
             }
         })
 
-        val adapter = ExpressOrderAdapter(PoliGasListener { orderId -> expressOrderViewModel.onPoliGasClicked(orderId) })
+        val adapter = SchedulerOrderAdapter(PoliGasSchedulerListener { orderId -> schedulerOrderViewModel.onPoliGasClicked(orderId) })
 
-        binding.expressList.adapter = adapter
+        binding.schedulerList.adapter = adapter
 
 
-        db.collection("express").get()
+        db.collection("scheduleorder").get()
             .addOnSuccessListener { document ->
                 val data = document.toObjects(PoliGas::class.java)
                 adapter.addHeaderAndSubmitList(data)
@@ -56,5 +56,4 @@ class ExpressOrderFragment : Fragment() {
 
         return binding.root
     }
-
 }

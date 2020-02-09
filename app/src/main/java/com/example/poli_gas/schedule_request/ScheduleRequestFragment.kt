@@ -102,8 +102,6 @@ class ScheduleRequestFragment : Fragment() {
         poligas.insertScheduleOrder(dataPoligas, context)
 
         //view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
-
-
     }
 
     private fun getOrder(){
