@@ -139,6 +139,12 @@
             app:exitAnim="@anim/slide_up_top"
             app:popUpTo="@+id/typeRequestFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="latitud"
+            app:argType="string" />
+        <argument
+            android:name="longitud"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"

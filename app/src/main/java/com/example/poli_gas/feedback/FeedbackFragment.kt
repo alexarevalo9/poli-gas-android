@@ -1,6 +1,7 @@
 package com.example.poli_gas.feedback
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,11 @@ class FeedbackFragment : Fragment() {
 
             db.collection("commentaries").add(data)
 
+
             view!!.findNavController().navigate(FeedbackFragmentDirections.actionFeedbackFragmentToHomeFragment())
         }
 
         return binding.root
     }
+
 }

@@ -131,8 +131,13 @@ class MapFragment :  Fragment(), PermissionsListener {
                 }
 
                 binding.loadLocalStyleButton.setOnClickListener{
-                    saveCoordinates()
-                    view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToHomeFragment())
+                    if(latLong?.get(0) != null && latLong?.get(1) != null){
+                        saveCoordinates()
+                        view!!.findNavController().navigate(MapFragmentDirections.actionMapFragmentToHomeFragment())
+                    }else{
+                        Toast.makeText(context, "Debe Elegir una Ubicación", Toast.LENGTH_LONG).show()
+                    }
+
                 }
 
             }
@@ -144,17 +149,21 @@ class MapFragment :  Fragment(), PermissionsListener {
     }
 
     private fun saveCoordinates(){
-        val coordinates = hashMapOf(
-            "latitud" to latLong?.get(0),
-            "longitud" to latLong?.get(1)
-        )
 
-        FirebaseAuth.getInstance().uid?.let { UID ->
-            db.collection("coordinates").document(UID)
-                .set(coordinates)
-                .addOnSuccessListener { Log.i("MapFragmentS", "DocumentSnapshot successfully written!") }
-                .addOnFailureListener { e -> Log.i("MapFragmentS", "Error writing document", e) }
+        if(latLong?.get(0) != null && latLong?.get(1) != null){
+            val coordinates = hashMapOf(
+                "latitud" to latLong?.get(0),
+                "longitud" to latLong?.get(1)
+            )
+
+            FirebaseAuth.getInstance().uid?.let { UID ->
+                db.collection("coordinates").document(UID)
+                    .set(coordinates)
+                    .addOnSuccessListener { Log.i("MapFragmentS", "DocumentSnapshot successfully written!") }
+                    .addOnFailureListener { e -> Log.i("MapFragmentS", "Error writing document", e) }
+            }
         }
+
     }
 
     override fun onStart() {

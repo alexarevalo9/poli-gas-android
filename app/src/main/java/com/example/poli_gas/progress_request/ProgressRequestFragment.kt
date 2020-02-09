@@ -10,14 +10,18 @@ import com.example.poli_gas.databinding.FragmentProgressRequestBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kofigyan.stateprogressbar.StateProgressBar
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Toast
 import com.example.poli_gas.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.view.*
 
 class ProgressRequestFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
     private lateinit var binding: FragmentProgressRequestBinding
+    private var ORIGIN_LONGITUDE = ""
+    private var ORIGIN_LATITUDE = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -25,6 +29,8 @@ class ProgressRequestFragment : Fragment() {
 
         val navBottonm = activity!!.findViewById<View>(R.id.container)
         navBottonm.bottomNavigationView.setVisibility(View.GONE)
+
+        getCoordinates()
 
         binding.progressBar.checkStateCompleted(true)
         binding.progressBar.setMaxStateNumber(StateProgressBar.StateNumber.FOUR);
@@ -71,7 +77,7 @@ class ProgressRequestFragment : Fragment() {
                     2 -> {
                         showProgressText(3)
                         animateProgressBar(StateProgressBar.StateNumber.THREE)
-                        view!!.findNavController().navigate(ProgressRequestFragmentDirections.actionProgressRequestFragmentToNavigationMapFragment())
+                        view!!.findNavController().navigate(ProgressRequestFragmentDirections.actionProgressRequestFragmentToNavigationMapFragment(ORIGIN_LATITUDE, ORIGIN_LONGITUDE))
                     }
 
                     3 -> {
@@ -86,6 +92,18 @@ class ProgressRequestFragment : Fragment() {
                 }
             }
         }.start()
+    }
+
+    private fun getCoordinates(){
+        FirebaseAuth.getInstance().uid?.let { UID ->
+
+            db.collection("coordinates").document(UID)
+                .get()
+                .addOnSuccessListener { document ->
+                    ORIGIN_LATITUDE = document.get("latitud").toString()
+                    ORIGIN_LONGITUDE = document.get("longitud").toString()
+                }
+        }
     }
 
     private fun animateProgressBar(currentState : StateProgressBar.StateNumber){

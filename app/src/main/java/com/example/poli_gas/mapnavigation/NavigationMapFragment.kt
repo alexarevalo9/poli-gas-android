@@ -33,6 +33,10 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
 
     private var navigationView: NavigationView? = null
     private var directionsRoute: DirectionsRoute? = null
+    private var ORIGIN_LONGITUDE = -78.4823047
+    private var ORIGIN_LATITUDE = -0.1926335
+    private var DESTINATION_LONGITUDE = -78.4826116
+    private var DESTINATION_LATITUDE = -0.193841
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +47,10 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
         val binding = inflater.inflate(R.layout.fragment_navigation_map, container, false)
         val navBottonm = activity!!.findViewById<View>(R.id.container)
         navBottonm.bottomNavigationView.setVisibility(View.GONE)
+        val data = arguments?.let { NavigationMapFragmentArgs.fromBundle(it) }!!
+        DESTINATION_LONGITUDE = data.longitud.toDouble()
+        DESTINATION_LATITUDE = data.latitud.toDouble()
+        initDestinationCoordinates()
         return binding
     }
 
@@ -54,6 +62,34 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
         navigationView!!.initialize(this)
     }
 
+    private fun initDestinationCoordinates(){
+        val randomNumber = (1..4).shuffled().first()
+        when(randomNumber){
+            1 -> {
+                ORIGIN_LATITUDE = -0.208952
+                ORIGIN_LONGITUDE = -78.495356
+            }
+            2 -> {
+                ORIGIN_LATITUDE = -0.206073
+                ORIGIN_LONGITUDE = -78.487275
+            }
+            3 -> {
+                ORIGIN_LATITUDE = -0.205709
+                ORIGIN_LONGITUDE = -78.491933
+            }
+            4 -> {
+                ORIGIN_LATITUDE = -0.210536
+                ORIGIN_LONGITUDE = -78.483140
+
+            }
+            else -> {
+                DESTINATION_LATITUDE = -0.215521
+                DESTINATION_LONGITUDE = -78.490765
+
+            }
+        }
+
+    }
 
     override fun onStart() {
         super.onStart()
@@ -98,6 +134,7 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
     }
 
     override fun onNavigationReady(isRunning: Boolean) {
+        Log.i("MAPNAVVV", "PRIMERRRO")
         val origin = Point.fromLngLat(ORIGIN_LONGITUDE, ORIGIN_LATITUDE)
         val destination = Point.fromLngLat(DESTINATION_LONGITUDE, DESTINATION_LATITUDE)
         fetchRoute(origin, destination)
@@ -212,11 +249,13 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
         editor.apply()
     }
 
+    //public inline fun String.toDouble(): Double = java.lang.Double.parseDouble(this)
+    /*
     companion object {
 
         private val ORIGIN_LONGITUDE = -78.4823047
         private val ORIGIN_LATITUDE = -0.1926335
         private val DESTINATION_LONGITUDE = -78.4826116
         private val DESTINATION_LATITUDE = -0.193841
-    }
+    }*/
 }
