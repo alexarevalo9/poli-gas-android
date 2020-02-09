@@ -17,6 +17,7 @@ import com.example.poli_gas.database.PoligasDatabaseDao
 import com.example.poli_gas.databinding.FragmentScheduleRequestBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,6 +29,9 @@ class ScheduleRequestFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentScheduleRequestBinding.inflate(inflater)
+
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.VISIBLE)
 
         data = arguments?.let { ScheduleRequestFragmentArgs.fromBundle(it) }!!
 
@@ -97,7 +101,7 @@ class ScheduleRequestFragment : Fragment() {
 
         poligas.insertScheduleOrder(dataPoligas, context)
 
-        view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
+        //view!!.findNavController().navigate(ScheduleRequestFragmentDirections.actionScheduleRequestFragmentToProgressRequestFragment(false))
 
 
     }

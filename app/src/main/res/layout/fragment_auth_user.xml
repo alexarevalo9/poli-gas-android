@@ -13,36 +13,36 @@
 
             <RelativeLayout
                 android:id="@+id/layoutHead"
-                android:background="#5CC09F"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:id="@+id/image_view"
-                    android:background="@drawable/gasamarillo"
-                    android:layout_centerInParent="true"
                     android:layout_width="90dp"
-                    android:layout_height="90dp"/>
+                    android:layout_height="90dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/icon_logo_app" />
 
                 <TextView
-                    android:text="Verify Phone Number"
-                    android:textAlignment="center"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@android:color/white"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/image_view"
-                    android:enabled="true"
                     android:id="@+id/edit_text_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/image_view"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:enabled="true"
+                    android:text="Verificar Número de Teléfono"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="@android:color/white" />
 
                 <ProgressBar
-                    android:visibility="invisible"
                     android:id="@+id/progressbar_pic"
-                    android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
 
             </RelativeLayout>
 
@@ -60,7 +60,7 @@
                 <TextView
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:text="A verification code will be sent to your number. "
+                    android:text="Se le enviará un código de verificación a su número."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -83,7 +83,7 @@
                         android:id="@+id/edit_text_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="phone"
+                        android:hint="Celular"
                         android:inputType="phone"
                         android:singleLine="true"/>
                 </LinearLayout>
@@ -92,7 +92,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_gravity="center_horizontal"
                     android:textAllCaps="false"
-                    android:text="Send Code"
+                    android:text="Enviar Código"
                     android:id="@+id/button_send_verification"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"/>
@@ -114,7 +114,7 @@
                 <TextView
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Please wait while we automatically verify your number. If auto verification is not working you can enter the code received as well."
+                    android:text="Espere mientras verificamos automáticamente su número. Si la verificación automática no funciona, también puede ingresar el código recibido."
                     android:layout_width="match_parent"
                     android:layout_marginBottom="15dp"
                     android:layout_height="wrap_content"/>
@@ -132,7 +132,7 @@
                     android:id="@+id/edit_text_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Verification Code"
+                    android:hint="Código de Verificación"
                     android:inputType="number"
                     android:singleLine="true"/>
 
@@ -140,16 +140,14 @@
                     android:layout_marginTop="15dp"
                     android:layout_gravity="center_horizontal"
                     android:textAllCaps="false"
-                    android:text="Verify"
+                    android:text="Verificar"
                     android:id="@+id/button_verify"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
-
         </RelativeLayout>
-
 
     </FrameLayout>
 </layout>

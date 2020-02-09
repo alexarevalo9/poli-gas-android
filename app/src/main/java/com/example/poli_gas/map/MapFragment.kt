@@ -33,6 +33,7 @@ import com.mapbox.mapboxsdk.style.layers.Property
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MapFragment :  Fragment(), PermissionsListener {
 
@@ -49,6 +50,8 @@ class MapFragment :  Fragment(), PermissionsListener {
         Mapbox.getInstance(context!!, getString(R.string.mapbox_access_token))
 
         val binding = FragmentMapBinding.inflate(inflater)
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.GONE)
         mapView = binding.mapView
         mapView?.onCreate(savedInstanceState)
         mapView?.getMapAsync{mapboxMap ->
@@ -59,10 +62,6 @@ class MapFragment :  Fragment(), PermissionsListener {
                 enableLocationPlugin(style, mapboxMap)
 
                 map = mapboxMap
-
-                // Toast instructing user to tap on the mapboxMap
-                Toast.makeText(context, getString(R.string.move_map_instruction), Toast.LENGTH_SHORT
-                ).show()
 
                 // When user is still picking a location, we hover a marker above the mapboxMap in the center.
                 // This is done by using an image view with the default marker found in the SDK. You can
@@ -115,10 +114,10 @@ class MapFragment :  Fragment(), PermissionsListener {
                     } else {
 
                         // Switch the button appearance back to select a location.
-                        binding.selectLocationButton!!.setBackgroundColor(
+                        binding.selectLocationButton.setBackgroundColor(
                             ContextCompat.getColor(context!!, R.color.colorPrimary)
                         )
-                        binding.selectLocationButton!!.text = getString(R.string.location_picker_select_location_button_select)
+                        binding.selectLocationButton.text = getString(R.string.location_picker_select_location_button_select)
 
                         // Show the red hovering ImageView marker
                         hoveringMarker!!.visibility = View.VISIBLE

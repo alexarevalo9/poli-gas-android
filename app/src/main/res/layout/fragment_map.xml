@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         mapbox:mapbox_cameraTargetLat="-0.2101769"
         mapbox:mapbox_cameraTargetLng="-78.490869"
-        mapbox:mapbox_cameraZoom="11">
+        mapbox:mapbox_cameraZoom="15">
 <!--
         <Button
             android:id="@+id/select_location_button"

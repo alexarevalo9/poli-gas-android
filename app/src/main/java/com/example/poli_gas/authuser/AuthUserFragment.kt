@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.concurrent.TimeUnit
 
 class AuthUserFragment : Fragment() {
@@ -28,6 +29,8 @@ class AuthUserFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         binding = FragmentAuthUserBinding.inflate(inflater)
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.GONE)
         auth = FirebaseAuth.getInstance()
         return binding.root
     }

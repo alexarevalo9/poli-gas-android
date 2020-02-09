@@ -12,6 +12,7 @@ import com.kofigyan.stateprogressbar.StateProgressBar
 import android.os.CountDownTimer
 import android.widget.Toast
 import com.example.poli_gas.R
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class ProgressRequestFragment : Fragment() {
 
@@ -21,6 +22,9 @@ class ProgressRequestFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = FragmentProgressRequestBinding.inflate(inflater)
+
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.GONE)
 
         binding.progressBar.checkStateCompleted(true)
         binding.progressBar.setMaxStateNumber(StateProgressBar.StateNumber.FOUR);
@@ -105,6 +109,7 @@ class ProgressRequestFragment : Fragment() {
     private fun showFeedbackResources(){
         binding.commentButton.visibility = View.VISIBLE
         binding.commentTextView.visibility = View.VISIBLE
+        binding.progressBar2.visibility = View.INVISIBLE
     }
 
     private fun hideFeedbackResources(){

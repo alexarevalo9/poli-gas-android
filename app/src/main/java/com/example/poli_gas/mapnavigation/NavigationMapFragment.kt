@@ -23,6 +23,7 @@ import com.mapbox.services.android.navigation.ui.v5.listeners.NavigationListener
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute
 import com.mapbox.services.android.navigation.v5.routeprogress.ProgressChangeListener
 import com.mapbox.services.android.navigation.v5.routeprogress.RouteProgress
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 import retrofit2.Call
 import retrofit2.Response
@@ -39,7 +40,10 @@ class NavigationMapFragment : Fragment(), OnNavigationReadyCallback, NavigationL
         savedInstanceState: Bundle?
     ): View? {
         Mapbox.getInstance(context!!, getString(R.string.mapbox_access_token))
-        return inflater.inflate(R.layout.fragment_navigation_map, container, false)
+        val binding = inflater.inflate(R.layout.fragment_navigation_map, container, false)
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.GONE)
+        return binding
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

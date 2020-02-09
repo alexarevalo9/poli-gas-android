@@ -16,6 +16,7 @@ import com.example.poli_gas.database.PoliGas
 import com.example.poli_gas.database.PoligasDatabaseDao
 import com.example.poli_gas.databinding.FragmentOrderDetailBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class OrderDetailFragment : Fragment() {
 
@@ -25,6 +26,10 @@ class OrderDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding =  FragmentOrderDetailBinding.inflate(inflater)
+
+        val navBottonm = activity!!.findViewById<View>(R.id.container)
+        navBottonm.bottomNavigationView.setVisibility(View.VISIBLE)
+
         val arguments = OrderDetailFragmentArgs.fromBundle(arguments!!)
 
         binding.setLifecycleOwner(this)
@@ -65,7 +70,6 @@ class OrderDetailFragment : Fragment() {
         item?.let {
             binding.dateString.text = "Fecha de Compra: " + item.date +" - "+ item.hour
             binding.totalCylinders.text = "Cantidad de Cilindros: " +item.totalCylinder
-            binding.statusGas.text = "Estatus: Entregado"
         }
     }
 }

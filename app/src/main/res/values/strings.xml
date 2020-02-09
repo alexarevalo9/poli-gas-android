@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Poli-Gas</string>
+    <string name="app_name">POLI~GAS</string>
 
     <!-- Strings of Welcome Land -->
-    <string name="welcome_msg">Bienvenido a esta nueva forma de cilindros de gas a domicilio</string>
+    <string name="welcome_msg">Bienvenido a esta nueva forma de pedir cilindros de gas a domicilio</string>
     <string name="begin_text">Comencemos!!!</string>
 
     <!-- Strings of Info User Land -->
@@ -12,7 +12,7 @@
     <string name="save">Guardar</string>
 
     <!-- Strings of Home Land -->
-    <string name="quantity_cylinders">Cantidad de cilindros</string>
+    <string name="quantity_cylinders">Cantidad de Cilindros:</string>
     <string name="make_request">Realizar Pedido</string>
 
     <!-- Strings of Type Request -->
@@ -47,7 +47,7 @@
     <string name="user_location_permission_not_granted">No se otorgó permisos de ubicación.</string>
     <!--LocationPickerActivity activity-->
     <string name="location_picker_select_location_button_cancel">Cancelar</string>
-    <string name="location_picker_select_location_button_select">Selecciona una ubicación</string>
+    <string name="location_picker_select_location_button_select">Seleccionar Ubicación</string>
     <string name="location_picker_dropped_marker_snippet_no_results">Sin resultados</string>
     <string name="location_picker_place_name_result">Nombre del Lugar: %1$s</string>
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_controller"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/startFragment">
 
     <fragment
         android:id="@+id/startFragment"
@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment__welcome">
         <action
             android:id="@+id/action_startFragment_to_authUserFragment"
-            app:destination="@id/authUserFragment" />
+            app:destination="@id/authUserFragment"
+            app:enterAnim="@anim/slide_down_top"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -22,7 +25,9 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_typeRequestFragment"
-            app:destination="@id/typeRequestFragment" />
+            app:destination="@id/typeRequestFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment
@@ -37,10 +42,16 @@
         tools:layout="@layout/fragment_progress_request">
         <action
             android:id="@+id/action_progressRequestFragment_to_feedbackFragment"
-            app:destination="@id/feedbackFragment" />
+            app:destination="@id/feedbackFragment"
+            app:enterAnim="@anim/slide_down_top"
+            app:exitAnim="@anim/slide_up_top"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_progressRequestFragment_to_navigationMapFragment"
-            app:destination="@id/navigationMapFragment" />
+            app:destination="@id/navigationMapFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <argument
             android:name="progressState"
             app:argType="boolean" />
@@ -67,10 +78,15 @@
         tools:layout="@layout/fragment_type_request">
         <action
             android:id="@+id/action_typeRequestFragment_to_progressRequestFragment"
-            app:destination="@id/progressRequestFragment" />
+            app:destination="@id/progressRequestFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_typeRequestFragment_to_scheduleRequestFragment"
-            app:destination="@id/scheduleRequestFragment" />
+            app:destination="@id/scheduleRequestFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <argument
             android:name="typeCylinder"
             app:argType="integer" />
@@ -84,7 +100,11 @@
         tools:layout="@layout/fragment_map">
         <action
             android:id="@+id/action_mapFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fade_out"
+            app:exitAnim="@anim/slide_down_top"
+            app:popUpTo="@+id/startFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/authUserFragment"
@@ -93,7 +113,10 @@
         tools:layout="@layout/fragment_auth_user">
         <action
             android:id="@+id/action_authUserFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:enterAnim="@anim/slide_up_top"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/navigationMapFragment"
@@ -102,7 +125,11 @@
         tools:layout="@layout/fragment_navigation_map">
         <action
             android:id="@+id/action_navigationMapFragment_to_progressRequestFragment"
-            app:destination="@id/progressRequestFragment" />
+            app:destination="@id/progressRequestFragment"
+            app:enterAnim="@anim/slide_down_top"
+            app:exitAnim="@anim/slide_up_top"
+            app:popUpTo="@+id/typeRequestFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -116,7 +143,9 @@
         tools:layout="@layout/fragment_express_order">
         <action
             android:id="@+id/action_expressOrderFragment_to_orderDetailFragment"
-            app:destination="@id/orderDetailFragment" />
+            app:destination="@id/orderDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailFragment"
@@ -128,6 +157,9 @@
             app:argType="string" />
         <action
             android:id="@+id/action_orderDetailFragment_to_expressOrderFragment"
-            app:destination="@id/expressOrderFragment" />
+            app:destination="@id/expressOrderFragment"
+            app:enterAnim="@anim/slide_down_top"
+            app:exitAnim="@anim/slide_up_top"
+            app:popUpTo="@+id/accountFragment" />
     </fragment>
 </navigation>

@@ -8,10 +8,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".detailorder.OrderDetailFragment"></activity>
+        <activity android:name=".detailorder.OrderDetailFragment" />
         <activity android:name=".expressorder.ExpressOrderFragment" />
         <activity android:name=".myaccount.AccountFragment" />
         <activity android:name=".mapnavigation.NavigationMapFragment" />
@@ -30,6 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/comment_message"
         android:textColor="@color/text_color"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
